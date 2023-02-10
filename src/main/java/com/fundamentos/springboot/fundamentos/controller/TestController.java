@@ -11,6 +11,6 @@ public class TestController {
     @RequestMapping("/")
     @ResponseBody
     public ResponseEntity<String> function(){
-        return new ResponseEntity<>("Hello from Controller", HttpStatus.OK);
+        return new ResponseEntity<>("Hello, Fuck You, from Controller", HttpStatus.OK);
     }
 }
