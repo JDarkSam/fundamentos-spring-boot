@@ -2,6 +2,7 @@ package com.fundamentos.springboot.fundamentos;
 
 import com.fundamentos.springboot.fundamentos.bean.MyBean;
 import com.fundamentos.springboot.fundamentos.bean.MyBeanWithDependecy;
+import com.fundamentos.springboot.fundamentos.bean.MyBeanWithProperties;
 import com.fundamentos.springboot.fundamentos.bean.MyCalculoIva;
 import com.fundamentos.springboot.fundamentos.component.ComponentDependency;
 import com.fundamentos.springboot.fundamentos.component.ComponentTwoImplement;
@@ -18,12 +19,14 @@ public class FundamentosApplication implements CommandLineRunner {
 
 	private MyBeanWithDependecy myBeanWithDependecy;
     private MyCalculoIva myCalculoIva;
+	private MyBeanWithProperties myBeanWithProperties;
 
-	public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependency componentDependency, MyBean myBean, MyBeanWithDependecy myBeanWithDependecy,MyCalculoIva myCalculoIva){
+	public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependency componentDependency, MyBean myBean, MyBeanWithDependecy myBeanWithDependecy,MyCalculoIva myCalculoIva, MyBeanWithProperties myBeanWithProperties){
 		this.componentDependency = componentDependency;
 		this.myBean=myBean;
 		this.myBeanWithDependecy=myBeanWithDependecy;
 		this.myCalculoIva = myCalculoIva;
+		this.myBeanWithProperties=myBeanWithProperties;
 	}
 
 	public static void main(String[] args) {
@@ -37,5 +40,6 @@ public class FundamentosApplication implements CommandLineRunner {
 		myBeanWithDependecy.printWithDependecy();
 		double valorIva = myCalculoIva.calculoIva(15000);
 		System.out.println("El valor de IVA es: "+valorIva);
+		System.out.println(myBeanWithProperties.function());
 	}
 }
